@@ -3,16 +3,7 @@
   min-height: 80vh;
 }
 
-/* SIDEBAR */
-.sidebar {
-  width: 200px;
-  background: #243457;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+
 
 /* CONTENT */
 .content {
