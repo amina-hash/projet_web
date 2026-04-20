@@ -13,9 +13,9 @@ function Dashboard() {
 
       <div className="layout">
         
-        <div className="sidebar">
+      
             <Sidebar />
-        </div>
+       
         
         <div className="content">
          <Outlet />
