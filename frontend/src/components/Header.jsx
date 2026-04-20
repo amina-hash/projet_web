@@ -10,7 +10,7 @@ const styles = {
   header: {
     background: "#625dc1",
     color: "white",
-    padding: "10px",
+    padding: "5px 10px",
     textAlign: "start",
   }
 };

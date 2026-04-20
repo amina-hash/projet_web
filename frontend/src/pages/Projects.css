@@ -1,0 +1,34 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* LINK STYLE */
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* hover effect */
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* ICON */
+.icon {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

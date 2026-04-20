@@ -11,10 +11,11 @@ const styles = {
     background: "#111827",
     color: "white",
     textAlign: "center",
-    padding: "10px",
+    padding: "4px",
     position: "fixed",
     bottom: 0,
-    width: "100%"
+    width: "100%",
+  
   }
 };
 

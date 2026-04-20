@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Projects.css";
 
 const projects = [
   { title: "Matrices JS", link: "matrices", icon: "🧮" },
@@ -14,15 +15,15 @@ function Projects() {
     <div>
       <h2>Mes Projets 📁</h2>
 
-      <div style={styles.grid}>
+      <div className="grid">
         {projects.map((proj, index) => (
           <Link
             key={index}
             to={proj.link}
-            style={{ textDecoration: "none", color: "inherit"  }}
+            className="link"
           >
-            <div style={styles.card}>
-              <div style={styles.icon}>{proj.icon}</div>
+            <div className="card">
+              <div className="icon">{proj.icon}</div>
               <h3>{proj.title}</h3>
             </div>
           </Link>
@@ -31,27 +32,5 @@ function Projects() {
     </div>
   );
 }
-
-const styles = {
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(1, 1fr)",
-    gap: "20px",
-    marginTop: "20px",
-  },
-  card: {
-    background: "white",
-    padding: "10px",
-    borderRadius: "12px",
-    textAlign: "center",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
-    cursor: "pointer",
-    transition: "0.3s",
-  },
-  icon: {
-    fontSize: "20px",
-    marginBottom: "10px",
-  },
-};
 
 export default Projects;

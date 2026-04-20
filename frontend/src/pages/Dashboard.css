@@ -1,0 +1,22 @@
+.layout {
+  display: flex;
+  min-height: 80vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 200px;
+  background: #243457;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #f4f6f9;
+}
