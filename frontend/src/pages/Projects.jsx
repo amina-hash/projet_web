@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Projects.css";
 
+
 const projects = [
   { title: "Matrices JS", link: "matrices", icon: "🧮" },
   { title: "Formulaire PHP", link: "formulaire", icon: "📄" },
@@ -19,7 +20,7 @@ function Projects() {
         {projects.map((proj, index) => (
           <Link
             key={index}
-            to={proj.link}
+            to={`/projects/${proj.link}`}
             className="link"
           >
             <div className="card">

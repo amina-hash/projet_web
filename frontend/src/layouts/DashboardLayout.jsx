@@ -2,22 +2,22 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import "../pages/Dashboard.css";
+
+
 
  
  function DashboardLayout() {
-   return (
-      <div>
-        <h1>teeest layout</h1>
+    return (
+    <div>
       <Header />
 
-      <div className="layout">
+      <div style={{ display: "flex", minHeight: "80vh" }}>
         
-        <div className="sidebar">
+      
             <Sidebar />
-        </div>
+       
         
-        <div className="content">
+        <div style={styles.content}>
          <Outlet />
         
         </div>
@@ -25,7 +25,15 @@ import "../pages/Dashboard.css";
 
       <Footer />
     </div>
-   )
+  );
  }
+ const styles = {
+
+  content: {
+    flex: 1,
+    padding: "20px",
+    background: "#f4f6f9",
+  },
+};
  
  export default DashboardLayout
