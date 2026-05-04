@@ -1,10 +1,134 @@
 import { useState } from "react";
 
 function Matrices() {
+
+
+  // Matrice 1
+  const [matrice1, setMatrice1] = useState({
+    nbrLigne: 0,
+    nbrColonne: 0,
+  });
+
+  // Matrice 2
+  const [matrice2, setMatrice2] = useState({
+    nbrLigne: 0,
+    nbrColonne: 0,
+  });
+
+  const [values1, setValues1] = useState([]);
+  const [values2, setValues2] = useState([]);
+const [sumResult, setSumResult] = useState([]);
+const [mulResult, setMulResult] = useState([]);
+  // Generate matrix
+  const generateMatrix = (rows, cols) => {
+    const matrix = [];
+
+    for (let i = 0; i < rows; i++) {
+      const row = [];
+      for (let j = 0; j < cols; j++) {
+        row.push(Math.floor(Math.random() * 10));
+      }
+      matrix.push(row);
+    }
+
+    return matrix;
+  };
+
+  // Format
+  const formatMatrix = (matrix) => {
+    return matrix.map(row => row.join(" ")).join("\n");
+  };
+
+  // Handlers
+  const handleChangeMatrice1 = (e) => {
+    setMatrice1({
+      ...matrice1,
+      [e.target.name]: Number(e.target.value),
+    });
+  };
+
+  const handleChangeMatrice2 = (e) => {
+    setMatrice2({
+      ...matrice2,
+      [e.target.name]: Number(e.target.value),
+    });
+  };
+
+  const handleClickMatrice1 = () => {
+    const m = generateMatrix(matrice1.nbrLigne, matrice1.nbrColonne);
+    setValues1(m);
+  };
+
+  const handleClickMatrice2 = () => {
+    const m = generateMatrix(matrice2.nbrLigne, matrice2.nbrColonne);
+    setValues2(m);
+  };
+const addMatrices = (A, B) => {
+  const result = [];
+
+  for (let i = 0; i < A.length; i++) {
+    const row = [];
+    for (let j = 0; j < A[i].length; j++) {
+      row.push(A[i][j] + B[i][j]);
+    }
+    result.push(row);
+  }
+
+  return result;
+};
+
+const handleSum = () => {
+
+  if (
+    values1.length !== values2.length ||
+    values1[0].length !== values2[0].length
+  ) {
+    alert("Les matrices doivent avoir la même taille !");
+    return;
+  }
+
+  const result = addMatrices(values1, values2);
+  setSumResult(result);
+};
+
+const multiplyMatrices = (A, B) => {
+  const result = [];
+
+  for (let i = 0; i < A.length; i++) {
+    const row = [];
+
+    for (let j = 0; j < B[0].length; j++) {
+      let sum = 0;
+
+      for (let k = 0; k < A[0].length; k++) {
+        sum += A[i][k] * B[k][j];
+      }
+
+      row.push(sum);
+    }
+
+    result.push(row);
+  }
+
+  return result;
+};
+const handleProduit = () => {
+
+  if (!values1.length || !values2.length) {
+    alert("Génère les deux matrices d'abord !");
+    return;
+  }
+
+  if (values1[0].length !== values2.length) {
+    alert("Le nombre de colonnes de A doit être égal au nombre de lignes de B !");
+    return;
+  }
+
+  const result = multiplyMatrices(values1, values2);
+  setMulResult(result);
+};
   return (
     <div className="container mt-4">
-
-      {/* Row pour les deux matrices */}
       <div className="row">
 
         {/* Matrice 1 */}
@@ -15,18 +139,34 @@ function Matrices() {
             </div>
 
             <label>Nombre de lignes :</label>
-            <input className="form-control mb-2" />
+            <input
+              name="nbrLigne"
+              value={matrice1.nbrLigne}
+              onChange={handleChangeMatrice1}
+              className="form-control mb-2"
+            />
 
             <label>Nombre de colonnes :</label>
-            <input className="form-control mb-3" />
+            <input
+              name="nbrColonne"
+              value={matrice1.nbrColonne}
+              onChange={handleChangeMatrice1}
+              className="form-control mb-3"
+            />
 
-            <button className="btn btn-outline-primary mb-3">
+            <button
+              onClick={handleClickMatrice1}
+              className="btn btn-outline-primary mb-3"
+            >
               Générer des valeurs aléatoires
             </button>
 
-            <label>Valeurs générées :</label>
-            <textarea className="form-control" rows="5"></textarea>
-          </div>
+<textarea
+  className="form-control"
+  rows="5"
+  value={formatMatrix(values1)}
+  readOnly
+/>          </div>
         </div>
 
         {/* Matrice 2 */}
@@ -37,50 +177,66 @@ function Matrices() {
             </div>
 
             <label>Nombre de lignes :</label>
-            <input className="form-control mb-2" />
+            <input
+              name="nbrLigne"
+              value={matrice2.nbrLigne}
+              onChange={handleChangeMatrice2}
+              className="form-control mb-2"
+            />
 
             <label>Nombre de colonnes :</label>
-            <input className="form-control mb-3" />
+            <input
+              name="nbrColonne"
+              value={matrice2.nbrColonne}
+              onChange={handleChangeMatrice2}
+              className="form-control mb-3"
+            />
 
-            <button className="btn btn-outline-primary mb-3">
+            <button
+              onClick={handleClickMatrice2}
+              className="btn btn-outline-primary mb-3"
+            >
               Générer des valeurs aléatoires
             </button>
 
-            <label>Valeurs générées :</label>
-            <textarea className="form-control" rows="5"></textarea>
-          </div>
+<textarea
+  className="form-control"
+  rows="5"
+  value={formatMatrix(values2)}
+  readOnly
+/>          </div>
         </div>
+        
+
+      </div>
+           <div className="row mt-4">
+
+        <div className="col-md-6 text-center">
+       <button className="btn btn-success mb-2" onClick={handleSum}>
+         Calculer Somme
+       </button>
+
+<textarea
+  className="form-control"
+  rows="4"
+  value={formatMatrix(sumResult)}
+  readOnly
+/>        </div>
+
+        <div className="col-md-6 text-center">
+        <button className="btn btn-success mb-2" onClick={handleProduit}>
+          Calculer Produit
+        </button>
+
+<textarea
+  className="form-control"
+  rows="4"
+  value={formatMatrix(mulResult)}
+  readOnly
+/>        </div>
 
       </div>
 
-      {/* Bottom section */}
-      <div className="row mt-4">
-
-        <div className="col-md-6 text-center">
-          <button className="btn btn-success mb-2">
-            Calculer Somme
-          </button>
-
-          <textarea
-            className="form-control"
-            rows="4"
-            placeholder="Résultat de la Somme"
-          ></textarea>
-        </div>
-
-        <div className="col-md-6 text-center">
-          <button className="btn btn-success mb-2">
-            Calculer Produit
-          </button>
-
-          <textarea
-            className="form-control"
-            rows="4"
-            placeholder="Résultat du Produit"
-          ></textarea>
-        </div>
-
-      </div>
     </div>
   );
 }
