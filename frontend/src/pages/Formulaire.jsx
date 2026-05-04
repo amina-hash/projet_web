@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 function Formulaire() {
 
   const [form, setForm] = useState({
@@ -72,8 +72,9 @@ function Formulaire() {
         <button className="btn btn-primary w-100 mt-3">
           Valider
         </button>
-
-      </form>
+<Link to="liste" className="btn btn-outline-primary mt-2">
+  Consulter liste
+</Link>      </form>
 
     </div>
   )

@@ -4,12 +4,12 @@ function Matrices() {
   return (
     <div className="container mt-4">
 
-      <div className="col-md-6">
+      {/* Row pour les deux matrices */}
+      <div className="row">
 
         {/* Matrice 1 */}
         <div className="col-md-6">
           <div className="card shadow p-3">
-            
             <div className="bg-primary text-white text-center p-2 mb-3">
               Matrice N°1
             </div>
@@ -32,7 +32,6 @@ function Matrices() {
         {/* Matrice 2 */}
         <div className="col-md-6">
           <div className="card shadow p-3">
-
             <div className="bg-primary text-white text-center p-2 mb-3">
               Matrice N°2
             </div>
@@ -62,9 +61,11 @@ function Matrices() {
             Calculer Somme
           </button>
 
-          <textarea className="form-control" rows="4"
-            placeholder="Résultat de la Somme">
-          </textarea>
+          <textarea
+            className="form-control"
+            rows="4"
+            placeholder="Résultat de la Somme"
+          ></textarea>
         </div>
 
         <div className="col-md-6 text-center">
@@ -72,13 +73,14 @@ function Matrices() {
             Calculer Produit
           </button>
 
-          <textarea className="form-control" rows="4"
-            placeholder="Résultat du Produit">
-          </textarea>
+          <textarea
+            className="form-control"
+            rows="4"
+            placeholder="Résultat du Produit"
+          ></textarea>
         </div>
 
       </div>
-
     </div>
   );
 }
