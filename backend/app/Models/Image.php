@@ -5,17 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Map extends Model
+class Image extends Model
 {
+    use HasFactory;
+
+    protected $table = 'images';
+
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'latitude',
-        'longitude'
+        'name',
+        'type',
+        'size',
+        'bin_img'
     ];
 
+    // optional (مفيد فالتعامل مع data كبيرة)
     protected $casts = [
-        'latitude' => 'float',
-        'longitude' => 'float',
+        'size' => 'integer',
+    ];
+
+    // نخبيو binary فـ JSON responses (اختياري)
+    protected $hidden = [
+        'bin_img'
     ];
 }
