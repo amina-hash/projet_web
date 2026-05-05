@@ -36,39 +36,69 @@ navigate(-1)      })
   }
 
   return (
-    <>
-      <div className="mb-3">
-        <h4>Étudiant :</h4>
-        <p><strong>CNE:</strong> {etudiant.cne}</p>
-        <p><strong>Nom:</strong> {etudiant.nom}</p>
-        <p><strong>Prénom:</strong> {etudiant.prenom}</p>
+    <div className="container py-2 ds-main-narrow">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Modifier les notes</h1>
+        <p>Étudiant sélectionné</p>
       </div>
 
-      <form onSubmit={handleUpdate}>
+      <div className="ds-surface ds-card-padding mb-4">
+        <dl className="row small mb-0">
+          <dt className="col-sm-3 text-body-secondary">CNE</dt>
+          <dd className="col-sm-9 mb-2">{etudiant.cne}</dd>
+          <dt className="col-sm-3 text-body-secondary">Nom</dt>
+          <dd className="col-sm-9 mb-2">{etudiant.nom}</dd>
+          <dt className="col-sm-3 text-body-secondary">Prénom</dt>
+          <dd className="col-sm-9 mb-0">{etudiant.prenom}</dd>
+        </dl>
+      </div>
 
-        <input
-          name="note1"
-          value={etudiant.note1 || ""}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
+      <div className="ds-surface ds-card-padding">
+        <form onSubmit={handleUpdate}>
+          <p className="ds-section-title">Notes</p>
 
-        <input
-          name="note2"
-          value={etudiant.note2 || ""}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
+          <div className="mb-3">
+            <label className="form-label" htmlFor="edit-note1">Module 1</label>
+            <input
+              id="edit-note1"
+              name="note1"
+              type="number"
+              value={etudiant.note1 || ""}
+              onChange={handleChange}
+              className="form-control"
+              placeholder="Note module 1"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="edit-note2">Module 2</label>
+            <input
+              id="edit-note2"
+              name="note2"
+              type="number"
+              value={etudiant.note2 || ""}
+              onChange={handleChange}
+              className="form-control"
+              placeholder="Note module 2"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="form-label" htmlFor="edit-note3">Module 3</label>
+            <input
+              id="edit-note3"
+              name="note3"
+              type="number"
+              value={etudiant.note3 || ""}
+              onChange={handleChange}
+              className="form-control"
+              placeholder="Note module 3"
+            />
+          </div>
 
-        <input
-          name="note3"
-          value={etudiant.note3 || ""}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-
-        <button className="btn btn-success">Modifier</button>
-      </form>
-    </>
+          <button type="submit" className="btn btn-primary w-100 btn-lg">
+            Enregistrer
+          </button>
+        </form>
+      </div>
+    </div>
   )
 }

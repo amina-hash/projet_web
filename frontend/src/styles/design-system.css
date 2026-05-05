@@ -1,0 +1,275 @@
+/**
+ * Design system — tokens + Bootstrap 5.3 bridge
+ * Loaded after Bootstrap CDN in index.html; overrides --bs-* variables.
+ */
+
+:root,
+[data-bs-theme="light"] {
+  --ds-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  --ds-body-bg: #f1f5f9;
+  --ds-surface: #ffffff;
+  --ds-surface-elevated: #ffffff;
+  --ds-border: #e2e8f0;
+  --ds-text: #0f172a;
+  --ds-text-muted: #64748b;
+  --ds-primary: #4f46e5;
+  --ds-primary-dark: #4338ca;
+  --ds-sidebar: #0f172a;
+  --ds-sidebar-hover: #1e293b;
+
+  /* Bootstrap theme bridge */
+  --bs-body-font-family: var(--ds-font-sans);
+  --bs-body-color: var(--ds-text);
+  --bs-body-bg: var(--ds-body-bg);
+  --bs-primary: var(--ds-primary);
+  --bs-primary-rgb: 79, 70, 229;
+  --bs-link-color: var(--ds-primary);
+  --bs-link-hover-color: var(--ds-primary-dark);
+  --bs-border-color: var(--ds-border);
+  --bs-border-radius: 0.75rem;
+  --bs-border-radius-lg: 1rem;
+  --bs-box-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --bs-box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.08),
+    0 2px 4px -2px rgba(15, 23, 42, 0.06);
+}
+
+body {
+  font-family: var(--ds-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- Layout chrome ----- */
+.ds-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ds-body-bg);
+}
+
+.ds-main {
+  flex: 1;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem) 2rem;
+  background: var(--ds-body-bg);
+}
+
+.ds-main-narrow {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Dashboard: centered content column next to sidebar */
+.ds-dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.ds-dashboard-inner {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+.ds-dashboard-tile {
+  border-radius: var(--bs-border-radius-lg);
+  border: 1px solid var(--ds-border);
+  box-shadow: var(--bs-box-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ds-dashboard-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bs-box-shadow);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+/* Page title bar (used across routes) */
+.ds-page-header {
+  background: linear-gradient(135deg, var(--ds-primary) 0%, #6366f1 100%);
+  color: #fff;
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--bs-box-shadow);
+}
+
+.ds-page-header h1,
+.ds-page-header .ds-page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ds-page-header p {
+  margin: 0.35rem 0 0;
+  opacity: 0.92;
+  font-size: 0.875rem;
+}
+
+/* Cards */
+.ds-surface {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--bs-border-radius-lg);
+  box-shadow: var(--bs-box-shadow-sm);
+}
+
+.ds-card-padding {
+  padding: 1.5rem;
+}
+
+/* Tables */
+.ds-table-wrap {
+  background: var(--ds-surface);
+  border-radius: var(--bs-border-radius-lg);
+  border: 1px solid var(--ds-border);
+  overflow: hidden;
+  box-shadow: var(--bs-box-shadow-sm);
+}
+
+.ds-table-wrap .table {
+  margin-bottom: 0;
+}
+
+.ds-table-wrap .table thead th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--ds-text-muted);
+  border-bottom-width: 1px;
+}
+
+/* Section titles inside pages */
+.ds-section-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ds-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* Quiz option rows */
+.ds-quiz-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--bs-border-radius);
+  border: 1px solid transparent;
+  margin-bottom: 0.35rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.ds-quiz-option:hover {
+  background: #f8fafc;
+  border-color: var(--ds-border);
+}
+
+.ds-quiz-option input {
+  margin-top: 0.35rem;
+}
+
+/* Matrix panel header inside cards */
+.ds-panel-heading {
+  background: linear-gradient(135deg, var(--ds-primary) 0%, #6366f1 100%);
+  color: #fff;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  border-radius: var(--bs-border-radius);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+/* Map container */
+.ds-map-shell {
+  border-radius: var(--bs-border-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--ds-border);
+  box-shadow: var(--bs-box-shadow-sm);
+  background: var(--ds-surface);
+}
+
+/* Projects grid — keep class names used in JSX */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.projects-grid .project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.projects-grid .project-card {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: var(--bs-box-shadow-sm);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  height: 100%;
+}
+
+.projects-grid .project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bs-box-shadow);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+.projects-grid .project-card .project-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.projects-grid .project-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ds-text);
+}
+
+/* Sidebar nav cards */
+.ds-sidebar-card {
+  display: block;
+  border-radius: var(--bs-border-radius-lg);
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: #fff !important;
+  text-decoration: none !important;
+  background: rgba(79, 70, 229, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--bs-box-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.ds-sidebar-card:hover {
+  background: rgba(99, 102, 241, 0.55);
+  transform: translateY(-2px);
+  box-shadow: var(--bs-box-shadow);
+}

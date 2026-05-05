@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import "./Projects.css";
-
 
 const projects = [
   { title: "Matrices JS", link: "matrices", icon: "🧮" },
@@ -13,18 +11,21 @@ const projects = [
 
 function Projects() {
   return (
-    <div>
-      <h2>Mes Projets 📁</h2>
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Mes projets</h1>
+        <p>Choisissez un module pour ouvrir la démo</p>
+      </div>
 
-      <div className="grid">
+      <div className="projects-grid">
         {projects.map((proj, index) => (
           <Link
             key={index}
             to={`/projects/${proj.link}`}
-            className="link"
+            className="project-link"
           >
-            <div className="card">
-              <div className="icon">{proj.icon}</div>
+            <div className="project-card">
+              <div className="project-icon">{proj.icon}</div>
               <h3>{proj.title}</h3>
             </div>
           </Link>

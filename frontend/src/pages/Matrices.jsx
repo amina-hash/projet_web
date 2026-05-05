@@ -128,41 +128,49 @@ const handleProduit = () => {
   setMulResult(result);
 };
   return (
-    <div className="container mt-4">
-      <div className="row">
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Matrices</h1>
+        <p>Génération, somme et produit</p>
+      </div>
+
+      <div className="row g-4">
 
         {/* Matrice 1 */}
         <div className="col-md-6">
-          <div className="card shadow p-3">
-            <div className="bg-primary text-white text-center p-2 mb-3">
+          <div className="ds-surface ds-card-padding h-100">
+            <div className="ds-panel-heading">
               Matrice N°1
             </div>
 
-            <label>Nombre de lignes :</label>
+            <label className="form-label">Nombre de lignes</label>
             <input
               name="nbrLigne"
               value={matrice1.nbrLigne}
               onChange={handleChangeMatrice1}
-              className="form-control mb-2"
+              type="number"
+              className="form-control mb-3"
             />
 
-            <label>Nombre de colonnes :</label>
+            <label className="form-label">Nombre de colonnes</label>
             <input
               name="nbrColonne"
               value={matrice1.nbrColonne}
               onChange={handleChangeMatrice1}
+              type="number"
               className="form-control mb-3"
             />
 
             <button
+              type="button"
               onClick={handleClickMatrice1}
-              className="btn btn-outline-primary mb-3"
+              className="btn btn-outline-primary w-100 mb-3"
             >
               Générer des valeurs aléatoires
             </button>
 
 <textarea
-  className="form-control"
+  className="form-control font-monospace small"
   rows="5"
   value={formatMatrix(values1)}
   readOnly
@@ -171,36 +179,39 @@ const handleProduit = () => {
 
         {/* Matrice 2 */}
         <div className="col-md-6">
-          <div className="card shadow p-3">
-            <div className="bg-primary text-white text-center p-2 mb-3">
+          <div className="ds-surface ds-card-padding h-100">
+            <div className="ds-panel-heading">
               Matrice N°2
             </div>
 
-            <label>Nombre de lignes :</label>
+            <label className="form-label">Nombre de lignes</label>
             <input
               name="nbrLigne"
               value={matrice2.nbrLigne}
               onChange={handleChangeMatrice2}
-              className="form-control mb-2"
+              type="number"
+              className="form-control mb-3"
             />
 
-            <label>Nombre de colonnes :</label>
+            <label className="form-label">Nombre de colonnes</label>
             <input
               name="nbrColonne"
               value={matrice2.nbrColonne}
               onChange={handleChangeMatrice2}
+              type="number"
               className="form-control mb-3"
             />
 
             <button
+              type="button"
               onClick={handleClickMatrice2}
-              className="btn btn-outline-primary mb-3"
+              className="btn btn-outline-primary w-100 mb-3"
             >
               Générer des valeurs aléatoires
             </button>
 
 <textarea
-  className="form-control"
+  className="form-control font-monospace small"
   rows="5"
   value={formatMatrix(values2)}
   readOnly
@@ -209,31 +220,33 @@ const handleProduit = () => {
         
 
       </div>
-           <div className="row mt-4">
+           <div className="row g-4 mt-1">
 
-        <div className="col-md-6 text-center">
-       <button className="btn btn-success mb-2" onClick={handleSum}>
-         Calculer Somme
+        <div className="col-md-6">
+       <div className="ds-surface ds-card-padding text-center h-100">
+       <button type="button" className="btn btn-primary w-100 mb-3" onClick={handleSum}>
+         Calculer la somme
        </button>
 
 <textarea
-  className="form-control"
+  className="form-control font-monospace small text-start"
   rows="4"
   value={formatMatrix(sumResult)}
   readOnly
-/>        </div>
+/>        </div></div>
 
-        <div className="col-md-6 text-center">
-        <button className="btn btn-success mb-2" onClick={handleProduit}>
-          Calculer Produit
+        <div className="col-md-6">
+        <div className="ds-surface ds-card-padding text-center h-100">
+        <button type="button" className="btn btn-primary w-100 mb-3" onClick={handleProduit}>
+          Calculer le produit
         </button>
 
 <textarea
-  className="form-control"
+  className="form-control font-monospace small text-start"
   rows="4"
   value={formatMatrix(mulResult)}
   readOnly
-/>        </div>
+/>        </div></div>
 
       </div>
 

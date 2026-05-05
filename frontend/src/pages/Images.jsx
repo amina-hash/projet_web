@@ -57,84 +57,79 @@ function ImageUpload() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Images</h1>
+        <p>Téléversement et galerie</p>
+      </div>
 
-      <div className="card shadow-lg p-4">
+      <div className="ds-surface ds-card-padding mb-4">
+        <p className="ds-section-title">Envoyer une image</p>
 
-        <h3 className="text-center text-primary mb-4">
-          Image Upload System
-        </h3>
-
-        {/* file input */}
         <input
           type="file"
           className="form-control mb-3"
           onChange={handleChange}
+          accept="image/*"
         />
 
-        {/* preview */}
         {preview && (
-          <div className="text-center mb-3">
+          <div className="text-center mb-4">
             <img
               src={preview}
-              alt="preview"
+              alt="Aperçu"
+              className="rounded-3 border shadow-sm"
               style={{
-                height: "150px",
-                objectFit: "cover"
+                maxHeight: "200px",
+                width: "auto",
+                objectFit: "cover",
               }}
-              className="rounded shadow"
             />
           </div>
         )}
 
-        {/* buttons */}
-        <div className="d-flex justify-content-between">
+        <div className="d-flex flex-wrap gap-2">
           <button
+            type="button"
             className="btn btn-primary"
             onClick={handleUpload}
           >
-            📤 Upload
+            Téléverser
           </button>
 
           <button
+            type="button"
             className="btn btn-outline-secondary"
             onClick={fetchImages}
           >
-            🔄 Refresh
+            Actualiser
           </button>
         </div>
-
-        {/* gallery */}
-        <div className="row mt-4">
-
-          {images.map((img) => (
-            <div className="col-md-3 col-sm-6 mb-3" key={img.id}>
-
-              <div className="card shadow-sm">
-
-                <img
-                  src={`data:${img.type};base64,${img.image}`}
-                  alt={img.name}
-                  style={{
-                    height: "150px",
-                    objectFit: "cover"
-                  }}
-                  className="card-img-top"
-                />
-
-                <div className="card-body text-center">
-                  <small>{img.name}</small>
-                </div>
-
-              </div>
-
-            </div>
-          ))}
-
-        </div>
-
       </div>
 
+      <p className="ds-section-title px-1">Galerie</p>
+      <div className="row g-3">
+        {images.map((img) => (
+          <div className="col-md-3 col-sm-6" key={img.id}>
+            <div className="ds-surface overflow-hidden h-100">
+              <img
+                src={`data:${img.type};base64,${img.image}`}
+                alt={img.name}
+                className="w-100"
+                style={{
+                  height: "160px",
+                  objectFit: "cover",
+                }}
+              />
+              <div className="px-2 py-2 text-center border-top">
+                <small className="text-body-secondary text-truncate d-block">
+                  {img.name}
+                </small>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

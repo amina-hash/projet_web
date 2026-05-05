@@ -29,24 +29,19 @@ function Geolocalisation() {
   const center = [33.5731, -7.5898];
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "15px" }}>
-        Users Map 🗺️
-      </h2>
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Carte des utilisateurs</h1>
+        <p>Positions géographiques</p>
+      </div>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="ds-map-shell">
         <MapContainer
           center={center}
           zoom={6}
           style={{
-            width: "80%",
-            height: "450px",
-            borderRadius: "12px",
+            width: "100%",
+            height: "min(70vh, 520px)",
           }}
         >
           <TileLayer

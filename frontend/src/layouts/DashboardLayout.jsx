@@ -3,37 +3,24 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 
-
-
- 
- function DashboardLayout() {
-    return (
-    <div>
+function DashboardLayout() {
+  return (
+    <div className="ds-app">
       <Header />
 
-      <div style={{ display: "flex", minHeight: "80vh" }}>
-        
-      
-            <Sidebar />
-       
-        
-        <div style={styles.content}>
-         <Outlet />
-        
-        </div>
+      <div className="d-flex flex-grow-1 min-vh-0">
+        <Sidebar />
+
+        <main className="ds-main ds-dashboard-main flex-grow-1 overflow-auto">
+          <div className="ds-dashboard-inner">
+            <Outlet />
+          </div>
+        </main>
       </div>
 
       <Footer />
     </div>
   );
- }
- const styles = {
+}
 
-  content: {
-    flex: 1,
-    padding: "20px",
-    background: "#f4f6f9",
-  },
-};
- 
- export default DashboardLayout
+export default DashboardLayout;

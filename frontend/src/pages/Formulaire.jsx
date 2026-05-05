@@ -47,35 +47,54 @@ function Formulaire() {
   }
 
   return (
-    <div className="container mt-4">
-
-      <div className="bg-primary text-white p-3 rounded shadow mb-4">
-        <h2 className="text-center m-0">
-          Gestion de formulaire
-        </h2>
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Gestion de formulaire</h1>
+        <p>Saisie et envoi des données étudiant</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="card shadow border-0 p-4">
+      <div className="ds-surface ds-card-padding">
+        <form onSubmit={handleSubmit}>
+          <p className="ds-section-title">Informations</p>
 
-        <h5 className="text-primary mb-3">Information</h5>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="form-nom">Nom</label>
+            <input id="form-nom" name="nom" onChange={handleChange} placeholder="Nom" className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="form-prenom">Prénom</label>
+            <input id="form-prenom" name="prenom" onChange={handleChange} placeholder="Prénom" className="form-control" />
+          </div>
+          <div className="mb-4">
+            <label className="form-label" htmlFor="form-cne">CNE</label>
+            <input id="form-cne" name="cne" onChange={handleChange} placeholder="CNE" className="form-control" />
+          </div>
 
-        <input name="nom" onChange={handleChange} placeholder="Nom" className="form-control mb-2" />
-        <input name="prenom" onChange={handleChange} placeholder="Prénom" className="form-control mb-2" />
-        <input name="cne" onChange={handleChange} placeholder="CNE" className="form-control mb-2" />
+          <p className="ds-section-title">Notes des modules</p>
 
-        <h5 className="text-primary mt-4 mb-3">Notes des modules</h5>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="form-note1">Module 1</label>
+            <input id="form-note1" name="note1" type="number" onChange={handleChange} placeholder="Note module 1" className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="form-note2">Module 2</label>
+            <input id="form-note2" name="note2" type="number" onChange={handleChange} placeholder="Note module 2" className="form-control" />
+          </div>
+          <div className="mb-4">
+            <label className="form-label" htmlFor="form-note3">Module 3</label>
+            <input id="form-note3" name="note3" type="number" onChange={handleChange} placeholder="Note module 3" className="form-control" />
+          </div>
 
-        <input name="note1" type="number" onChange={handleChange} placeholder="Module 1" className="form-control mb-2" />
-        <input name="note2" type="number" onChange={handleChange} placeholder="Module 2" className="form-control mb-2" />
-        <input name="note3" type="number" onChange={handleChange} placeholder="Module 3" className="form-control mb-2" />
-
-        <button className="btn btn-primary w-100 mt-3">
-          Valider
-        </button>
-<Link to="liste" className="btn btn-outline-primary mt-2">
-  Consulter liste
-</Link>      </form>
-
+          <div className="d-grid gap-2">
+            <button type="submit" className="btn btn-primary btn-lg">
+              Valider
+            </button>
+            <Link to="liste" className="btn btn-outline-primary">
+              Consulter la liste
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

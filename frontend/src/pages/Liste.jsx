@@ -5,9 +5,6 @@ function Liste() {
 
   const [etudiants, setEtudiants] = useState([])
 
-   const handleClicke=()=>{
-     
-   }
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/etudiants")
       .then(res => {
@@ -16,45 +13,52 @@ setEtudiants(res.data.data)      })
   }, [])
 
   return (
-    <div className="container mt-4">
-
-      <div className="bg-primary text-white p-3 text-center mb-4">
-        <h2>Liste des étudiants enregistrés</h2>
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Liste des étudiants</h1>
+        <p>Données enregistrées côté serveur</p>
       </div>
 
-      <table className="table table-bordered text-center">
-        <thead className="table-primary">
-          <tr>
-            <th>CNE</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Module 1</th>
-            <th>Module 2</th>
-            <th>Module 3</th>
-            <th>Moyenne</th>
+      <div className="ds-table-wrap">
+        <div className="table-responsive">
+          <table className="table table-hover align-middle text-center mb-0">
+            <thead className="table-light">
+              <tr>
+                <th>CNE</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Module 1</th>
+                <th>Module 2</th>
+                <th>Module 3</th>
+                <th>Moyenne</th>
+                <th className="text-end pe-3">Actions</th>
+              </tr>
+            </thead>
 
-
-            <th>Modifier</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {etudiants.map((e, index) => (
-            <tr key={index}>
-              <td>{e.cne}</td>
-              <td>{e.nom}</td>
-              <td>{e.prenom}</td>
-              <td>{e.note1}</td>
-              <td>{e.note2}</td>
-              <td>{e.note3}</td>
-              <td>{e.moyenne}</td>
-              <td>
-<Link to={`/projects/formulaire/liste/${e.id}`}>Modifier</Link>              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
+            <tbody>
+              {etudiants.map((e, index) => (
+                <tr key={index}>
+                  <td className="fw-medium">{e.cne}</td>
+                  <td>{e.nom}</td>
+                  <td>{e.prenom}</td>
+                  <td>{e.note1}</td>
+                  <td>{e.note2}</td>
+                  <td>{e.note3}</td>
+                  <td>{e.moyenne}</td>
+                  <td className="text-end pe-3">
+                    <Link
+                      to={`/projects/formulaire/liste/${e.id}`}
+                      className="btn btn-sm btn-outline-primary"
+                    >
+                      Modifier
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   )
 }

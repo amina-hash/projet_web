@@ -1,10 +1,18 @@
-import React from 'react';
-import Card from './Card';
+import Card from "./Card";
 
 function Sidebar() {
   return (
-    <div style={styles.sidebar}>
-      <h3>Menu</h3>
+    <aside
+      className="flex-shrink-0 text-white d-flex flex-column gap-3 p-3"
+      style={{
+        width: "260px",
+        background: "linear-gradient(180deg, #0f172a 0%, #1e293b 100%)",
+        minHeight: "100%",
+      }}
+    >
+      <h2 className="h6 text-uppercase letter-spacing text-white-50 mb-1 px-1">
+        Menu
+      </h2>
 
       <Card
         title="About Me"
@@ -19,20 +27,8 @@ function Sidebar() {
         description="Voir tous mes projets"
         link="/dashboard/projects"
       />
-    </div>
+    </aside>
   );
 }
-
-const styles = {
-  sidebar: {
-    width: "200px",
-    background: "#020815",
-    color: "white",
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  }
-};
 
 export default Sidebar;

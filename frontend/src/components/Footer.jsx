@@ -1,22 +1,13 @@
 function Footer() {
   return (
-    <footer style={styles.footer}>
-      <p>Master RSI 2025–2026  |  Module : Langage du Web  |  Pr. Sofia El Amoury</p>
+    <footer className="border-top mt-auto py-3 px-3 text-center small text-white"
+      style={{ background: "#0f172a" }}
+    >
+      <p className="mb-0 opacity-90">
+        Master RSI 2025–2026 · Module : Langage du Web · Pr. Sofia El Amoury
+      </p>
     </footer>
   );
 }
-
-const styles = {
-  footer: {
-    background: "#111827",
-    color: "white",
-    textAlign: "center",
-    padding: "4px",
-    position: "fixed",
-    bottom: 0,
-    width: "100%",
-  
-  }
-};
 
 export default Footer;

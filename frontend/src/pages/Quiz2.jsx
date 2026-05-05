@@ -22,81 +22,146 @@ function Quiz2() {
   };
 
   return (
-    <div className="container mt-4">
-      <div className="card shadow p-4">
+    <div className="container py-2">
+      <div className="ds-page-header">
+        <h1 className="ds-page-title">Quiz Next.js</h1>
+        <p>Sept questions — une réponse par question</p>
+      </div>
 
-        <h4 className="text-center text-success">
-          Quiz 2 Next.js
-        </h4>
+      <div className="ds-surface ds-card-padding">
 
         {/* Q1 */}
-        <div className="mt-3">
-          <p>1. Next.js مبني على شنو؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">1. Next.js مبني على شنو؟</p>
 
-          <input type="radio" name="q1" onChange={() => handleChange("q1", "react")} /> React <br />
-          <input type="radio" name="q1" onChange={() => handleChange("q1", "vue")} /> Vue <br />
-          <input type="radio" name="q1" onChange={() => handleChange("q1", "angular")} /> Angular <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q1" id="n1a" onChange={() => handleChange("q1", "react")} />
+            <label className="form-check-label" htmlFor="n1a">React</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q1" id="n1b" onChange={() => handleChange("q1", "vue")} />
+            <label className="form-check-label" htmlFor="n1b">Vue</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q1" id="n1c" onChange={() => handleChange("q1", "angular")} />
+            <label className="form-check-label" htmlFor="n1c">Angular</label>
+          </div>
         </div>
 
         {/* Q2 */}
-        <div className="mt-3">
-          <p>2. شنو هي SSG ف Next.js؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">2. شنو هي SSG ف Next.js؟</p>
 
-          <input type="radio" name="q2" onChange={() => handleChange("q2", "ssg")} /> Static Site Generation <br />
-          <input type="radio" name="q2" onChange={() => handleChange("q2", "csr")} /> Client Side Rendering <br />
-          <input type="radio" name="q2" onChange={() => handleChange("q2", "ssr")} /> Server Side Rendering <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q2" id="n2a" onChange={() => handleChange("q2", "ssg")} />
+            <label className="form-check-label" htmlFor="n2a">Static Site Generation</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q2" id="n2b" onChange={() => handleChange("q2", "csr")} />
+            <label className="form-check-label" htmlFor="n2b">Client Side Rendering</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q2" id="n2c" onChange={() => handleChange("q2", "ssr")} />
+            <label className="form-check-label" htmlFor="n2c">Server Side Rendering</label>
+          </div>
         </div>
 
         {/* Q3 */}
-        <div className="mt-3">
-          <p>3. فين كنحطو الصفحات ف Next.js؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">3. فين كنحطو الصفحات ف Next.js؟</p>
 
-          <input type="radio" name="q3" onChange={() => handleChange("q3", "pages")} /> pages <br />
-          <input type="radio" name="q3" onChange={() => handleChange("q3", "components")} /> components <br />
-          <input type="radio" name="q3" onChange={() => handleChange("q3", "public")} /> public <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q3" id="n3a" onChange={() => handleChange("q3", "pages")} />
+            <label className="form-check-label" htmlFor="n3a">pages</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q3" id="n3b" onChange={() => handleChange("q3", "components")} />
+            <label className="form-check-label" htmlFor="n3b">components</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q3" id="n3c" onChange={() => handleChange("q3", "public")} />
+            <label className="form-check-label" htmlFor="n3c">public</label>
+          </div>
         </div>
 
         {/* Q4 */}
-        <div className="mt-3">
-          <p>4. شنو component ديال navigation؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">4. شنو component ديال navigation؟</p>
 
-          <input type="radio" name="q4" onChange={() => handleChange("q4", "link")} /> Link <br />
-          <input type="radio" name="q4" onChange={() => handleChange("q4", "nav")} /> nav <br />
-          <input type="radio" name="q4" onChange={() => handleChange("q4", "a")} /> a <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q4" id="n4a" onChange={() => handleChange("q4", "link")} />
+            <label className="form-check-label" htmlFor="n4a">Link</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q4" id="n4b" onChange={() => handleChange("q4", "nav")} />
+            <label className="form-check-label" htmlFor="n4b">nav</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q4" id="n4c" onChange={() => handleChange("q4", "a")} />
+            <label className="form-check-label" htmlFor="n4c">a</label>
+          </div>
         </div>
 
         {/* Q5 */}
-        <div className="mt-3">
-          <p>5. فين كنكتبو API routes؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">5. فين كنكتبو API routes؟</p>
 
-          <input type="radio" name="q5" onChange={() => handleChange("q5", "api")} /> /pages/api <br />
-          <input type="radio" name="q5" onChange={() => handleChange("q5", "routes")} /> /routes <br />
-          <input type="radio" name="q5" onChange={() => handleChange("q5", "server")} /> /server <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q5" id="n5a" onChange={() => handleChange("q5", "api")} />
+            <label className="form-check-label" htmlFor="n5a">/pages/api</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q5" id="n5b" onChange={() => handleChange("q5", "routes")} />
+            <label className="form-check-label" htmlFor="n5b">/routes</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q5" id="n5c" onChange={() => handleChange("q5", "server")} />
+            <label className="form-check-label" htmlFor="n5c">/server</label>
+          </div>
         </div>
 
         {/* Q6 */}
-        <div className="mt-3">
-          <p>6. شنو أسهل deploy ل Next.js؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">6. شنو أسهل deploy ل Next.js؟</p>
 
-          <input type="radio" name="q6" onChange={() => handleChange("q6", "vercel")} /> Vercel <br />
-          <input type="radio" name="q6" onChange={() => handleChange("q6", "ftp")} /> FTP <br />
-          <input type="radio" name="q6" onChange={() => handleChange("q6", "cpanel")} /> cPanel <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q6" id="n6a" onChange={() => handleChange("q6", "vercel")} />
+            <label className="form-check-label" htmlFor="n6a">Vercel</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q6" id="n6b" onChange={() => handleChange("q6", "ftp")} />
+            <label className="form-check-label" htmlFor="n6b">FTP</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q6" id="n6c" onChange={() => handleChange("q6", "cpanel")} />
+            <label className="form-check-label" htmlFor="n6c">cPanel</label>
+          </div>
         </div>
 
         {/* Q7 */}
-        <div className="mt-3">
-          <p>7. شنو component ديال الصور optimized؟</p>
+        <div className="mb-4">
+          <p className="fw-medium mb-3">7. شنو component ديال الصور optimized؟</p>
 
-          <input type="radio" name="q7" onChange={() => handleChange("q7", "image")} /> Image <br />
-          <input type="radio" name="q7" onChange={() => handleChange("q7", "img")} /> img <br />
-          <input type="radio" name="q7" onChange={() => handleChange("q7", "picture")} /> picture <br />
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q7" id="n7a" onChange={() => handleChange("q7", "image")} />
+            <label className="form-check-label" htmlFor="n7a">Image</label>
+          </div>
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="q7" id="n7b" onChange={() => handleChange("q7", "img")} />
+            <label className="form-check-label" htmlFor="n7b">img</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="q7" id="n7c" onChange={() => handleChange("q7", "picture")} />
+            <label className="form-check-label" htmlFor="n7c">picture</label>
+          </div>
         </div>
 
         <button
-          className="btn btn-success mt-4"
+          type="button"
+          className="btn btn-primary btn-lg w-100 mt-2"
           onClick={handleSubmit}
         >
-          Submit result
+          Envoyer les réponses
         </button>
 
       </div>

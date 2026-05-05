@@ -14,12 +14,14 @@ import EditEtudiant from "./pages/EditEtudiant";
 import Quiz2 from "./pages/Quiz2";
 import Geolocalisation from "./pages/Geolocalisation";
 import Stats from "./pages/Stats";
+import DashboardHome from "./pages/DashboardHome";
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
 
       <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route index element={<DashboardHome />} />
         <Route path="about" element={<AboutMe />} />
         <Route path="projects" element={<Projects />} />
       </Route>

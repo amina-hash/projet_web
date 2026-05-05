@@ -2,14 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "./login.css";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     axios.post("http://127.0.0.1:8000/api/login", {
@@ -19,7 +18,7 @@ const navigate = useNavigate();
     .then((res) => {
       console.log("SUCCESS:", res.data);
       alert("Welcome " + res.data.user);
-       navigate("/dashboard");
+      navigate("/dashboard");
     })
     .catch((err) => {
       console.log(err.response?.data);
@@ -28,31 +27,62 @@ const navigate = useNavigate();
   };
 
   return (
-    <div>
+    <div className="ds-app">
       <Header />
 
-      <div className="login-container">
-        <div className="login-box">
-          <h2>Welcome Back 👋</h2>
-          <p>Login to access your dashboard</p>
+      <main className="flex-grow-1 d-flex align-items-center justify-content-center px-3 py-5">
+        <div className="w-100" style={{ maxWidth: "420px" }}>
+          <div className="ds-page-header text-center mb-4">
+            <h1 className="ds-page-title">Connexion</h1>
+            <p className="mb-0">Accédez à votre espace portfolio</p>
+          </div>
 
-          <input
-            type="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <div className="ds-surface ds-card-padding">
+            <div className="text-center mb-4">
+              <p className="fs-2 mb-2" aria-hidden>👋</p>
+              <p className="text-body-secondary small mb-0">
+                Utilisez vos identifiants pour continuer
+              </p>
+            </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+            <div className="mb-3">
+              <label htmlFor="login-email" className="form-label">
+                Email
+              </label>
+              <input
+                id="login-email"
+                type="email"
+                className="form-control form-control-lg"
+                placeholder="you@example.com"
+                autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
 
-          <button onClick={handleLogin}>
-            Login
-          </button>
+            <div className="mb-4">
+              <label htmlFor="login-password" className="form-label">
+                Mot de passe
+              </label>
+              <input
+                id="login-password"
+                type="password"
+                className="form-control form-control-lg"
+                placeholder="••••••••"
+                autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <button
+              type="button"
+              className="btn btn-primary btn-lg w-100"
+              onClick={handleLogin}
+            >
+              Se connecter
+            </button>
+          </div>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>

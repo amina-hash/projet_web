@@ -4,12 +4,12 @@ import Footer from "../components/Footer";
 
 function ProjectLayout() {
   return (
-    <div>
+    <div className="ds-app">
       <Header />
 
-      <div className="content">
+      <main className="ds-main flex-grow-1">
         <Outlet />
-      </div>
+      </main>
 
       <Footer />
     </div>
