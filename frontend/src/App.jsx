@@ -11,6 +11,9 @@ import Quiz from "./pages/Quiz";
 import Quiz1 from "./pages/Quiz1";
 import Liste from "./pages/Liste";
 import EditEtudiant from "./pages/EditEtudiant";
+import Quiz2 from "./pages/Quiz2";
+import Geolocalisation from "./pages/Geolocalisation";
+import Stats from "./pages/Stats";
 function App() {
   return (
     <Routes>
@@ -31,7 +34,12 @@ function App() {
 <Route path="quiz">
           <Route index element={<Quiz />} />
           <Route path="quiz1" element={<Quiz1 />} />
-        </Route>    
+                    <Route path="quiz2" element={<Quiz2 />} />
+
+        </Route>  
+          <Route path="geolocalisation" element={<Geolocalisation />} />
+                    <Route path="stats" element={<Stats />} />
+
           </Route>
     </Routes>
   );

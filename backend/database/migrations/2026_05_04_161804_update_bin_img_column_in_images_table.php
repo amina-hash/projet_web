@@ -11,25 +11,18 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+  public function up()
     {
-   Schema::create('images', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->string('type');
-    $table->integer('size');
-$table->longBlob('bin_img');
-    $table->timestamps();
-});
-    }
 
+    DB::statement('ALTER TABLE images MODIFY bin_img LONGBLOB');    }
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()
+ public function down()
     {
-        Schema::dropIfExists('images');
-    }
-};
+        Schema::table('images', function (Blueprint $table) {
+            $table->binary('bin_img')->change();
+        });
+    }};

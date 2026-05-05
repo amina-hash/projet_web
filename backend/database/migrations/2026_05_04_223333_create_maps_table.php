@@ -11,18 +11,17 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-   Schema::create('images', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->string('type');
-    $table->integer('size');
-$table->longBlob('bin_img');
-    $table->timestamps();
-});
-    }
-
+public function up()
+{
+    Schema::create('maps', function (Blueprint $table) {
+        $table->id();
+        $table->string('first_name');
+        $table->string('last_name');
+        $table->decimal('latitude', 10, 8);
+        $table->decimal('longitude', 11, 8);
+        $table->timestamps();
+    });
+}
     /**
      * Reverse the migrations.
      *
@@ -30,6 +29,6 @@ $table->longBlob('bin_img');
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('maps');
     }
 };

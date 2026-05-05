@@ -8,7 +8,7 @@ const projects = [
   { title: "Images DB", link: "images", icon: "🖼️" },
   { title: "Quiz", link: "quiz", icon: "❓" },
   { title: "ChartJS", link: "stats", icon: "📊" },
-  { title: "Géolocalisation", link: "maps", icon: "📍" },
+  { title: "Géolocalisation", link: "geolocalisation", icon: "📍" },
 ];
 
 function Projects() {
