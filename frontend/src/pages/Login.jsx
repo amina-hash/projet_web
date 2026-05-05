@@ -17,6 +17,9 @@ function Login() {
     })
     .then((res) => {
       console.log("SUCCESS:", res.data);
+      if (res.data?.token) {
+        localStorage.setItem("auth_token", res.data.token);
+      }
       alert("Welcome " + res.data.user);
       navigate("/dashboard");
     })

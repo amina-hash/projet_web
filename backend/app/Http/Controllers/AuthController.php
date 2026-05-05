@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthController extends Controller
 {
@@ -31,4 +32,28 @@ class AuthController extends Controller
         'user' => $user->name
     ]);
 }
+
+    /**
+     * Log out: revoke Sanctum bearer token when present; destroy web session when active.
+     */
+    public function logout(Request $request)
+    {
+        $plainTextToken = $request->bearerToken();
+        if ($plainTextToken) {
+            $accessToken = PersonalAccessToken::findToken($plainTextToken);
+            if ($accessToken) {
+                $accessToken->delete();
+            }
+        }
+
+        if ($request->hasSession()) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
+
+        return response()->json([
+            'message' => 'Logged out successfully',
+        ]);
+    }
 }
